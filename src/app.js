@@ -16,11 +16,16 @@ const MainWindow = require("./assets/js/windows/mainWindow.js");
 let data
 let dev = process.env.NODE_ENV === 'dev';
 
-if (dev) {
+
+
+/*if (dev) {
     let appPath = path.resolve('./AppData/Launcher').replace(/\\/g, '/');
     if (!fs.existsSync(appPath)) fs.mkdirSync(appPath, { recursive: true });
     app.setPath('userData', appPath);
-}
+
+}*/
+
+console.log(">> " + app.getPath("userData"))
 
 const gotTheLock = app.requestSingleInstanceLock();
 

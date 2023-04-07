@@ -87,7 +87,7 @@ class Home {
     }
 
     async initLaunch() {
-        document.querySelector('.play-btn').addEventListener('click', async () => {
+        document.querySelector('.btm-left-wrp').addEventListener('click', async () => {
             let urlpkg = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url;
             let uuid = (await this.database.get('1234', 'accounts-selected')).value;
             let account = (await this.database.get(uuid.selected, 'accounts')).value;
@@ -95,7 +95,7 @@ class Home {
             let Resolution = (await this.database.get('1234', 'screen')).value;
             let launcherSettings = (await this.database.get('1234', 'launcher')).value;
 
-            let playBtn = document.querySelector('.play-btn');
+            let playBtn = document.querySelector('.btm-left-wrp');
             let info = document.querySelector(".text-download")
             let progressBar = document.querySelector(".progress-bar")
 
@@ -133,12 +133,15 @@ class Home {
                     max: `${ram.ramMax * 1024}M`
                 }
             }
+            
 
             playBtn.style.display = "none"
             info.style.display = "block"
             launch.Launch(opts);
 
             launch.on('extract', extract => {
+                console.log(extract);
+                console.log(extract);
                 console.log(extract);
             });
 
@@ -167,7 +170,7 @@ class Home {
             launch.on('speed', (speed) => {
                 console.log(`${(speed / 1067008).toFixed(2)} Mb/s`)
             })
-
+ 
             launch.on('patch', patch => {
                 console.log(patch);
                 info.innerHTML = `Patch en cours...`
@@ -206,18 +209,14 @@ class Home {
         let serverPing = await new Status(this.config.status.ip, this.config.status.port).getStatus();
 
         if (!serverPing.error) {
-            nameServer.textContent = this.config.status.nameServer;
-            serverMs.innerHTML = `<span class="green">En ligne</span> - ${serverPing.ms}ms`;
-            online.classList.toggle("off");
-            playersConnected.textContent = serverPing.playersConnect;
+            playersConnected.textContent = serverPing.playersConnect + " joueurs connectés";
         } else if (serverPing.error) {
-            nameServer.textContent = 'Serveur indisponible';
-            serverMs.innerHTML = `<span class="red">Hors ligne</span>`;
+            playersConnected.textContent = 0 + " joueurs connectés";
         }
     }
 
     initBtn() {
-        document.querySelector('.settings-btn').addEventListener('click', () => {
+        document.querySelector('.avterInfo').addEventListener('click', () => {
             changePanel('settings');
         });
     }

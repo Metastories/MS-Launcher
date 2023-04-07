@@ -46,14 +46,7 @@ class Launcher {
         });
 
         let maximized = false;
-        let maximize = document.querySelector("#maximize")
-        maximize.addEventListener("click", () => {
-            if (maximized) ipcRenderer.send("main-window-maximize")
-            else ipcRenderer.send("main-window-maximize");
-            maximized = !maximized
-            maximize.classList.toggle("icon-maximize")
-            maximize.classList.toggle("icon-restore-down")
-        });
+  
 
         document.querySelector("#close").addEventListener("click", () => {
             ipcRenderer.send("main-window-close");
