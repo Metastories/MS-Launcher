@@ -51,8 +51,8 @@
 
 .play-element {
     position: absolute;
-    left: 11%;
-    top: 14%;
+    left: 114px;
+    top: 12px;
     transform: translate(-50%);
     height: 50px;
     color: #F1F1F1;
@@ -63,11 +63,11 @@
 .news {
     position: absolute;
     top: -121%;
-    right: -15%;
+    right: -174px;
     /* text-align: center; */
     /* height: 48px; */
     /* border: none; */
-    width: 59%;
+    /* width: 59%; */
     padding: 0px;
     /* border-radius: 15px; */
     /* transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29); */
