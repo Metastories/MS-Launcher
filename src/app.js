@@ -4,7 +4,7 @@
  */
 
 const { app, ipcMain } = require('electron');
-const { Microsoft } = require('../lib/minecraft-java-core/build/Index');
+const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
 
 const path = require('path');
