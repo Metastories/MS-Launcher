@@ -7,7 +7,7 @@
 
 // libs 
 const fs = require('fs');
-const { Microsoft, Mojang } = require('minecraft-java-core');
+const { Microsoft, Mojang } = require('../lib/minecraft-java-core/build/Index');
 const { ipcRenderer } = require('electron');
 
 import { config, logger, changePanel, database, addAccount, accountSelect } from './utils.js';
