@@ -11,6 +11,8 @@ const os_1 = __importDefault(require("os"));
 const fs_1 = __importDefault(require("fs"));
 const adm_zip_1 = __importDefault(require("adm-zip"));
 const node_fetch_1 = __importDefault(require("node-fetch"));
+const fs = require('fs');
+
 let MojangLib = { win32: "windows", darwin: "osx", linux: "linux" };
 let Arch = { x32: "32", x64: "64", arm: "32", arm64: "64" };
 class Libraries {
