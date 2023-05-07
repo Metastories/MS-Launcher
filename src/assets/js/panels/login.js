@@ -6,7 +6,7 @@
 'use strict';
 
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
-const { Mojang } = require('minecraft-java-core');
+const { Mojang } = require('../lib/minecraft-java-core/build/Index');
 const { ipcRenderer } = require('electron');
 
 class Login {

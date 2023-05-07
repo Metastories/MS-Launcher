@@ -7,7 +7,7 @@
 
 import { logger, database, changePanel } from '../utils.js';
 
-const { Launch, Status } = require('minecraft-java-core');
+const { Launch, Status } = require('../lib/minecraft-java-core/build/Index');
 const { ipcRenderer } = require('electron');
 const launch = new Launch();
 const pkg = require('../package.json');
