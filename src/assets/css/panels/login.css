@@ -17,18 +17,32 @@
     padding: 0 7%;
 }
 
+.get_newAccountDiv{
+    background: #152493;
+    padding: 12px;
+    border-radius: 14px;
+    opacity: 75%;
+    font-size: 20px;
+    width: 90%;
+}
+
 .login-type-btn {
-    border-radius: 15px;
-    border: none;
-    margin: 2% 0;
-    height: 2em;
-    background-color: transparent;
-    box-shadow: transparent;
-    color: #121212;
-    font: normal normal bold 19px/29px Poppins;
-    cursor: pointer;
-    padding: 0 0 82px 0px;
-    transition: .3s;
+    width: 100%;
+
+    display: flex;
+    height: 66px;
+   
+    align-items: center;
+    font-size: 21px;
+    color: black;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.login-type-btn b{
+    font-size: 25px;
+    margin-left: 12px;
+   
 }
 
 .login-type-btn:hover {

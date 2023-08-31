@@ -5,9 +5,8 @@
 
 'use strict';
 
-import STDDECODE from '../std.render.js';
 import { logger, database, changePanel } from '../utils.js';
-
+const fs = require('fs');
 const { Launch, Status } = require('./minecraft-java-core/Index');
 const { ipcRenderer } = require('electron');
 const launch = new Launch();
@@ -134,7 +133,7 @@ class Home {
                     max: `${ram.ramMax * 1024}M`
                 }
             }
-            
+
 
             playBtn.style.display = "none"
             info.style.display = "block"
@@ -171,7 +170,7 @@ class Home {
             launch.on('speed', (speed) => {
                 console.log(`${(speed / 1067008).toFixed(2)} Mb/s`)
             })
- 
+
             launch.on('patch', patch => {
                 console.log(patch);
                 info.innerHTML = `Patch en cours...`
@@ -199,6 +198,8 @@ class Home {
             launch.on('error', err => {
                 console.log(err);
             });
+
+
         })
     }
 
@@ -217,20 +218,30 @@ class Home {
     }
 
     initBtn() {
-        
-        const G = require("jquery")
-        STDDECODE()
+
+        const _settings  = document.querySelector("._settings")
+        const settings_panel = document.createElement("div")
+        settings_panel.innerHTML = fs.readFileSync(`${__dirname}/panels/settings.html`, "utf8");
+        _settings.appendChild(settings_panel)
+        const sidebar = document.querySelector(".settings_sideBar")
+
         document.querySelector('.avterInfo').addEventListener('click', () => {
-            const panel = document.querySelector(".panel.home");
-            panel.style.setProperty("opacity", 1, "important");
-            changePanel('settings');
+            sidebar.style.display = "block";
+            // changePanel("settings")
+
         });
-        document.querySelector(".close_settings").addEventListener("click",()=>{
-          
-            changePanel('home');
-         
-        })
-     
+        document.querySelector(".close_sidebar").addEventListener('click', () => {
+            sidebar.style.display = "none";
+
+        });
+        window.onclick = function (event) {
+            if (event.target == sidebar) {
+                sidebar.style.display = "none";
+            }
+        }
+
+        //window controller
+
         const minimize = document.getElementById("minimize")
         const close = document.getElementById("close")
         minimize.onclick = ()=>{
@@ -239,20 +250,6 @@ class Home {
         close.onclick = ()=>{
             ipcRenderer.send("main-window-close");
         }
-
-        G("#lang_en").click(() => {
-            ipcRenderer.send("change_lang", "en")
-        })
-        G("#lang_fr").click(() => {
-            ipcRenderer.send("change_lang", "fr")
-        })
-        G("#lang_es").click(() => {
-            ipcRenderer.send("change_lang", "es")
-        })
-
-        ipcRenderer.on("update_lang",()=>{
-            STDDECODE()
-        })
 
     }
 
@@ -264,5 +261,7 @@ class Home {
         let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
         return { year: year, month: allMonth[month - 1], day: day }
     }
+
+
 }
 export default Home;

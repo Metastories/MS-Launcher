@@ -5,6 +5,7 @@
 
 'use strict';
 const { ipcRenderer } = require('electron');
+import STDDECODE from './std.render.js';
 import { config } from './utils.js';
 
 let dev = process.env.NODE_ENV === 'dev';
@@ -117,3 +118,5 @@ document.addEventListener("keydown", (e) => {
     }
 })
 new Splash();
+
+STDDECODE()

@@ -21,8 +21,9 @@ class Settings {
         this.initRam();
         this.initLauncherSettings();
     }
-
+  
     initAccount() {
+        
         document.querySelector('.accounts').addEventListener('click', async(e) => {
             let uuid = e.target.id;
             let selectedaccount = await this.database.get('1234', 'accounts-selected');
@@ -56,6 +57,8 @@ class Settings {
             document.querySelector(".cancel-login").style.display = "contents";
             changePanel("login");
         })
+
+        
     }
 
     async initRam() {
@@ -234,6 +237,8 @@ class Settings {
             document.querySelector('.default-tab-btn').click();
             changePanel("home");
         })
+
+      
     }
 
     async initSettingsDefault() {

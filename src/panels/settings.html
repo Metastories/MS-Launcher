@@ -3,37 +3,71 @@
         <button class="tab-btn-css tab-btn active-tab-btn default-tab-btn" style="display: none;">Comptes</button>
         <button class="tab-btn-css tab-btn" style="display: none;">Java</button>
         <button class="tab-btn-css tab-btn" style="display: none;">Launcher</button>
-        <button class="tab-btn-css save-tabs-btn">Sauvegarder</button>
     </div>
 
-    <div class="tabs-settings-content active-tab-content">
-        <div class="center-align">
-            <div class="title-settings">Paramètres</div>
-            <button class="add-account" style="display: none;">Ajouter un compte</button>
-            <div class="accounts"></div>
-            <div class="java-settings">
-                <div class="ram-info">
-                    <div class="memory-slider" min="0.5" max="8" step="0.5">
-                        <div class="slider-touch-left">
-                            <span value="0 Go"></span>
-                        </div>
-                        <div class="slider-touch-right">
-                            <span value="0 Go"></span>
-                        </div>
-                        <div class="slider-line">
-                            <span></span>
-                        </div>
-                    </div>
 
-                    <div class="ram-info-block">
-                        <b>Vous possédez un total de <span id="total-ram">0 Go</span> RAM.</b><br>
-                        <b>Vous possédez un total de <span id="free-ram">0 Go</span> RAM disponible.</b>
+
+    <div class="center-align">
+        <div class="overlay"></div>
+        <button class="add-account" style="display: none;">Ajouter un compte</button>
+       
+        <div class="flex justify-center z-50">
+            <div class="flex justify-between w-full items-center m-4 ">
+                <p class="font-MPLUS1p_b text-[30px] w-[80%] text-center text-shadow" dcode="Mes_paramètres">
+                    Mes paramètres
+                </p>
+                <img src="assets//img/close_s.png" class="w-[40px] close_settings">
+            </div>
+        </div>
+        <div class="accounts">
+
+        </div>
+
+        <p class="account-uuid  text-center -mt-[37px] mb-[40px]"></p>
+
+        <div class="java-settings">
+            <div class="ram-info">
+                <div class="memory-slider" min="0.5" max="8" step="0.5">
+                    <div class="slider-touch-left">
+                        <img src="assets//img/star.png">
+                        <span value="0 Go">
+
+                        </span>
+                    </div>
+                    <div class="slider-touch-right">
+                        <img src="assets//img/star.png">
+
+                        <span value="0 Go">
+                        </span>
+                    </div>
+                    <div class="slider-line">
+                        <span></span>
                     </div>
                 </div>
-            </div>
 
-            
+                <div class="ram-info-block text-[18px] mt-[56px] text-center">
+                    <b dcode="Vous_possédez">Vous possédez un total de </b><span class="text-[#FFD86A]"><span id="total-ram">0 Go</span>
+                            RAM</span>.</b><br>
+                    <b dcode="Vous_possédez_un">Vous possédez un total de</b> <span class="text-[#FFD86A]"><span id="free-ram">0 Go</span> RAM
+                        </span > <span dcode="disponible">disponible</span>.</b>
+                </div>
+            </div>
         </div>
+        <div class="flex justify-center mt-[40px]">
+
+            <button class="moz_button SAUVEGARDER w-max w-min-[350px] h-[78px] px-[20px] justify-center relative save-tabs-btn">
+                <div class="flex space-x-3 items-center">
+                    <p class="font-MPLUS1p_black" dcode="SAUVEGARDER">SAUVEGARDER</b>
+                </div>
+                <div class="Grounds">
+                    <img src="assets/img/Motifs.png" alt="">
+                </div>
+    
+            </button>
+    
+        </div>
+
+
     </div>
 
     <div class="tabs-settings-content">
@@ -67,9 +101,16 @@
             <div class="title-settings">Paramètre après le lancement du jeu.</div>
             <div class="java-settings">
                 <div class="information">
-                    <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close"><div class="checkround"></div></label> Fermer le launcher après le lancement du jeu.</br>
-                    <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label for="launcher-close-all"><div class="checkround"></div></label> Fermer le jeu si le launcher est fermé.</br>
-                    <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open"><div class="checkround"></div></label> Garder le launcher ouvert après le lancement du jeu.
+                    <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close">
+                        <div class="checkround"></div>
+                    </label> Fermer le launcher après le lancement du jeu.</br>
+                    <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label
+                        for="launcher-close-all">
+                        <div class="checkround"></div>
+                    </label> Fermer le jeu si le launcher est fermé.</br>
+                    <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open">
+                        <div class="checkround"></div>
+                    </label> Garder le launcher ouvert après le lancement du jeu.
                 </div>
             </div>
         </div>

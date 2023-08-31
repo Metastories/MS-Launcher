@@ -2,16 +2,18 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="assets/css/style.css"> 
+        <link rel="stylesheet" href="assets/css/build.css"> 
+
+
     </head>
     <body class="bodymain">
-        <div id="splash" style="display:none">
+        <div id="splash" class="fixed top-0 left-0 bottom-0 right-0 bg-black p-4" style="display:none">
             <img class="splash" src="assets/img/logo.png" />
             <p class="splash-message"></p>
             <p class="splash-author"><span class="author"></span></p>
-            <p class="message">Recherche de mise à jour</p>
+            <p class="message" dcode="Recherche_de">Recherche de mise à jour</p>
             <progress class="progressmain" value="0" max="0"></progress>
         </div>
         <script src="assets/js/index.js" type="module"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
     </body>
 </html>

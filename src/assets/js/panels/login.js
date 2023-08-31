@@ -7,7 +7,7 @@
 
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
 const { Mojang } = require('./minecraft-java-core/Index');
-const { ipcRenderer } = require('electron');
+const { ipcRenderer, shell } = require('electron');
 
 class Login {
     static id = "login";
@@ -21,10 +21,10 @@ class Login {
     getOnline() {
         console.log(`Initializing microsoft Panel...`)
         this.loginMicrosoft();
-        document.querySelector('.cancel-login').addEventListener("click", () => {
-            document.querySelector(".cancel-login").style.display = "none";
-            changePanel("settings");
-        })
+        // document.querySelector('.cancel-login').addEventListener("click", () => {
+        //     document.querySelector(".cancel-login").style.display = "none";
+        //     changePanel("settings");
+        // })
     }
 
     getOffline() {
@@ -34,23 +34,27 @@ class Login {
         this.loginMicrosoft();
         this.loginOffline();
         document.querySelector('.cancel-login').addEventListener("click", () => {
-            document.querySelector(".cancel-login").style.display = "none";
+            // document.querySelector(".cancel-login").style.display = "none";
             changePanel("settings");
         })
     }
 
     loginMicrosoft() {
         let microsoftBtn = document.querySelector('.microsoft')
+        document.getElementById("get_newMinecraft").addEventListener("click",()=>{
+            shell.openExternal("https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc")
+        })
 
-        let cancelBtn = document.querySelector('.cancel-login')
+        // let cancelBtn = document.querySelector('.cancel-login')
 
         microsoftBtn.addEventListener("click", () => {
             microsoftBtn.disabled = true;
-            cancelBtn.disabled = true;
+            // cancelBtn.disabled = true;
+
             ipcRenderer.invoke('Microsoft-window', this.config.client_id).then(account_connect => {
                 if (!account_connect) {
                     microsoftBtn.disabled = false;
-                    cancelBtn.disabled = false;
+                    // cancelBtn.disabled = false;
                     return;
                 }
 
@@ -83,12 +87,12 @@ class Login {
                 changePanel("home");
 
                 microsoftBtn.disabled = false;
-                cancelBtn.disabled = false;
-                cancelBtn.style.display = "none";
+                // cancelBtn.disabled = false;
+                // cancelBtn.style.display = "none";
             }).catch(err => {
                 console.log(err)
                 microsoftBtn.disabled = false;
-                cancelBtn.disabled = false;
+                // cancelBtn.disabled = false;
 
             });
         })

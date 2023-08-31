@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'MPLUS1p';
+  src: url('../fonts/MPLUS1p-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MPLUS1p_b';
+  src: url('../fonts/MPLUS1p-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-shadow{
+  text-shadow: 0 4px 7px #0a123f61;
+}
+
+@font-face {
+  font-family: 'MPLUS1p_black';
+  src: url('../fonts/MPLUS1p-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: MPLUS1p_b
+}
+
+.Grounds {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  display: flex;
+
+}
+
+.dragbar {
+  @apply fixed top-0 left-0 right-0 h-[20px];
+  -webkit-app-region: drag;
+}
+
+.svg_curve {
+  @apply fixed top-0 bottom-0 w-[62%];
+  z-index: -9;
+}
+
+.fit_sx {
+  @apply fixed left-0 top-0 bottom-0 right-0 -z-10
+}
+.moz_button{
+  border: 4px solid #FF9445;
+  background: linear-gradient(45deg, #FFD166, #FFE36E);
+  align-items: center;
+  font-size: 28px;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  border-radius: 12px;
+}
+.SAUVEGARDER{
+  box-shadow: -3px 14px 7px #171c4726;
+}
+.lang_buttons {
+  @apply flex space-x-3 fixed top-[29px] left-[120]
+}
+
+.lang_buttons>img {
+  width: 40px;
+}
+
+.back_p {
+  background: linear-gradient(181deg, #192450, transparent);
+}
+
+/* Style the custom scrollbar thumb */
+.scrollable-content {
+  width: 400px;
+  height: 718px;
+  overflow: auto;
+  @apply space-y-[26px]
+}
+
+.scrollable-content>div {
+ 
+  position: relative;
+  display: flex;
+  height: 214px;
+  width: 332px;
+  border-radius: 30px;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(254 252 232 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: #232956b8;
+  padding: 1rem;
+  font-size: 14px;
+}
+
+.scrollable-content>div>img {
+  @apply w-[150px] absolute bottom-0 right-3
+}
+
+.scrollable-content>div>p {
+  @apply w-[152px]
+}
+
+/* Set the background image of the scrollbar thumb */
+.scrollable-content::-webkit-scrollbar-thumb {
+  width: 80px;
+  /* Make the thumb wider */
+  height: 50px;
+  background-image: url(../img/scroll_r.png);
+  background-size: contain;
+  /* Scale the image to fit inside the thumb */
+  background-repeat: no-repeat;
+  /* Prevent the image from repeating */
+}
+
+/* Set the background color and border-radius of the scrollbar */
+.scrollable-content::-webkit-scrollbar {
+  width: 40px;
+  border-radius: 20px;
+  /* Adjust this value to control the border radius */
+}
+
+/* Hide the scrollbar track */
+.scrollable-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Hide the scrollbar buttons (arrows) */
+.scrollable-content::-webkit-scrollbar-button {
+  display: none;
+}
+
+.scroll_bar {
+  width: 16px;
+  height: 700px;
+  background: linear-gradient(242deg, #25336a, transparent);
+  margin-left: -25px;
+  z-index: -10;
+  border-radius: 12px;
+  margin-top: -12px;
+}
+
+.ramInfo_span{
+  @apply font-MPLUS1p_black text-[#FFD86A]
+}

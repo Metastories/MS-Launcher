@@ -27,15 +27,19 @@ function changePanel(id) {
 
 function addAccount(data) {
     let div = document.createElement("div");
-    div.classList.add("account");
+    document.querySelector(".account-uuid").innerHTML =  data.uuid
+    div.className = "account bg-[blue] rounded flex justify-between relative space-x-4 h-[45px] w-full items-center add_border px-[4px]"
     div.id = data.uuid;
     div.innerHTML = `
-        <img class="account-image" src="https://minotar.net/helm/${data.name}/100">
-        <div class="account-name">${data.name}</div>
-        <div class="account-uuid">${data.uuid}</div>
-        <div class="account-delete"><div class="icon-account-delete icon-account-delete-btn"></div></div>
+   
+    <img class="absolute -left-[18px] -top-[11px] w-[70px] avatar-x rounded-[12px]" src="https://minotar.net/helm/${data.name}/100">
+    <label class="text-center account-name !ml-[68px] text-[30px]"> ${data.name}</label>
+ <img class="account-delete w-[38px] mt-[5px]" src="assets//img/log_out.png">
     `
     document.querySelector('.accounts').appendChild(div);
+    document.querySelector(".account_name").innerHTML = data.name
+    document.querySelector(".avatar").setAttribute("src",`https://minotar.net/helm/${data.name}/100`)
+
 }
 
 function accountSelect(uuid) {
@@ -45,9 +49,4 @@ function accountSelect(uuid) {
 
     if (activeAccount) activeAccount.classList.toggle('active-account');
     account.classList.add('active-account');
-    headplayer(pseudo);
-}
-
-function headplayer(pseudo) {
-    document.querySelector(".player-head").style.backgroundImage = `url(https://minotar.net/helm/${pseudo}/100)`;
 }

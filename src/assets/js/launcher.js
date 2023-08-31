@@ -14,12 +14,13 @@ import { config, logger, changePanel, database, addAccount, accountSelect } from
 import Login from './panels/login.js';
 import Home from './panels/home.js';
 import Settings from './panels/settings.js';
+import STDDECODE from './std.render.js';
 
 class Launcher {
     async init() {
         this.initLog();
         console.log("Initializing Launcher...");
-        if (process.platform == "win32") this.initFrame();
+        // if (process.platform == "win32") this.initFrame();
         this.config = await config.GetConfig().then(res => res);
         this.news = await config.GetNews().then(res => res);
         this.database = await new database().init();
@@ -184,3 +185,5 @@ class Launcher {
 }
 
 new Launcher().init();
+
+STDDECODE()
