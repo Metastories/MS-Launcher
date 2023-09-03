@@ -1,8 +1,8 @@
 {
     "name": "metastories",
-    "preductname": "MetaStories Launcher",
-    "version": "1.5.3",
-    "description": "MetaStories Launcher",
+    "preductname": "MyMetaStories",
+    "version": "1.5.4",
+    "description": "MyMetaStories",
     "main": "src/app.js",
     "author": "joedev.fr",
     "url": "https://metastories.joedev.fr/",

@@ -73,28 +73,16 @@ function writeJSONFile(data, filePath) {
 
 
 function readJSONFile(filePath) {
-    const extractedJsonPath = path.join(app.getPath('userData'), `${filePath}.json`);
-    const file_path = path.resolve(appPath, 'buket', `${filePath}.json`);
-  
-    if (!fs.existsSync(extractedJsonPath)) {
-      try {
-        const jsonData = fs.readFileSync(file_path, 'utf8');
-  
-        fs.writeFileSync(extractedJsonPath, jsonData, 'utf8');
-        console.log(`File created at ${extractedJsonPath}`);
-      } catch (error) {
-        console.error('Error creating file:', error);
-      }
-    }
-  
-    try {
-      const jsonData = fs.readFileSync(extractedJsonPath, 'utf8');
-      return JSON.parse(jsonData);
-    } catch (error) {
-      console.error('Error reading JSON file:', error);
-      return null;
-    }
+  const file_path = `./src/assets/langs/${filePath}.json`
+
+  try {
+    const jsonData = fs.readFileSync(file_path, 'utf8');
+    return JSON.parse(jsonData);
+  } catch (error) {
+    console.error('Error reading JSON file:', error);
+    return null;
   }
+}
 
 
 module.exports = {
