@@ -14,6 +14,7 @@ const launch = new Launch();
 const pkg = require('../package.json');
 
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
+const appPath = await ipcRenderer.invoke('get-user-data-path');
 
 class Home {
     static id = "home";
@@ -219,7 +220,7 @@ class Home {
     initBtn() {
         
         const G = require("jquery")
-        STDDECODE()
+        STDDECODE(appPath)
         document.querySelector('.avterInfo').addEventListener('click', () => {
             const panel = document.querySelector(".panel.home");
             panel.style.setProperty("opacity", 1, "important");
@@ -251,7 +252,7 @@ class Home {
         })
 
         ipcRenderer.on("update_lang",()=>{
-            STDDECODE()
+            STDDECODE(appPath)
         })
 
     }

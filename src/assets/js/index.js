@@ -4,7 +4,7 @@
  */
 
 'use strict';
-const { ipcRenderer } = require('electron');
+const { ipcRenderer, remote } = require('electron');
 import STDDECODE from './std.render.js';
 import { config } from './utils.js';
 
@@ -119,4 +119,6 @@ document.addEventListener("keydown", (e) => {
 })
 new Splash();
 
-STDDECODE()
+const appPath = await ipcRenderer.invoke('get-user-data-path');
+
+STDDECODE(appPath)

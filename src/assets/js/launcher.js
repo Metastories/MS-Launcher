@@ -185,5 +185,6 @@ class Launcher {
 }
 
 new Launcher().init();
+const appPath = await ipcRenderer.invoke('get-user-data-path');
 
-STDDECODE()
+STDDECODE(appPath)

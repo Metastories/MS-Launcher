@@ -51,6 +51,10 @@ ipcMain.on('main-window-maximize', () => {
 ipcMain.on('main-window-hide', () => MainWindow.getWindow().hide())
 ipcMain.on('main-window-show', () => MainWindow.getWindow().show())
 
+ipcMain.handle('get-user-data-path', (event) => {
+    return app.getPath('userData');
+});
+
 ipcMain.handle('Microsoft-window', async(event, client_id) => {
     return await new Microsoft(client_id).getAuth();
 })
