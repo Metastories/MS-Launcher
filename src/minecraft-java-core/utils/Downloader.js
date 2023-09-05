@@ -24,6 +24,9 @@ class download {
         let start = new Date().getTime();
         let before = 0;
         let speeds = [];
+
+        let time = 10;
+
         let estimated = setInterval(() => {
             let duration = (new Date().getTime() - start) / 1000;
             let loaded = (downloaded - before) * 8;
@@ -35,11 +38,12 @@ class download {
                 speed += s;
             speed /= speeds.length;
             this.emit("speed", speed);
-            let time = (size - downloaded) / (speed);
+            time = (size - downloaded) / (speed);
             this.emit("estimated", time);
             start = new Date().getTime();
             before = downloaded;
         }, 500);
+
         const downloadNext = async () => {
             if (queued < files.length) {
                 let file = files[queued];
@@ -47,6 +51,9 @@ class download {
                 if (!fs_1.default.existsSync(file.foler))
                     fs_1.default.mkdirSync(file.folder, { recursive: true, mode: 0o777 });
                 const writer = fs_1.default.createWriteStream(file.path, { flags: 'w', mode: 0o777 });
+
+                console.log(file.url)
+
                 try {
                     const response = await (0, node_fetch_1.default)(file.url, { timeout: timeout });
                     response.body.on('data', (chunk) => {
@@ -68,14 +75,23 @@ class download {
                 }
             }
         };
-        while (queued < limit)
+        while (queued < limit){
             downloadNext();
+            console.log("downloadNext")
+        }
+
         return new Promise((resolve) => {
             const interval = setInterval(() => {
                 if (completed === files.length) {
                     clearInterval(estimated);
                     clearInterval(interval);
                     resolve();
+                }else{
+                    if(time === Infinity){
+                        clearInterval(estimated);
+                        clearInterval(interval);
+                        resolve();
+                    }
                 }
             }, 100);
         });
