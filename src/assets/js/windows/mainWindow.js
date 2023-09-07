@@ -28,8 +28,8 @@ function createWindow() {
     destroyWindow();
     mainWindow = new BrowserWindow({
         title: pkg.preductname,
-        width: 1600,
-        height: 997,
+        width: 1280,
+        height: 720,
         minWidth: 980,
         minHeight: 552,
         resizable: true,

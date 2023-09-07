@@ -10,6 +10,9 @@ body {
 
 .rounded_win {
   border-radius: 42px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .bodymain {
@@ -304,7 +307,7 @@ section.welcomescreen .actionHeader {
 
 section.welcomescreen ul.socail {
   position: fixed;
-  top: 39%;
+  top: 49%;
   transform: translateY(-50%);
   left: 2%;
   z-index: 2;
@@ -402,7 +405,9 @@ section.welcomescreen a.avterInfo img {
 }
 
 
-
+img.bootImg {
+  max-width: 330px;
+}
 
 
 
@@ -431,6 +436,11 @@ section.welcomescreen a.avterInfo img {
   .bottom_wrps ul li {
     max-width: 330px;
   }
+  .scrollable-content { 
+    height: 65vh; 
+}
+
+
 
 }
 
@@ -444,6 +454,60 @@ section.welcomescreen a.avterInfo img {
   .bottom_wrps ul li {
     max-width: 235px;
   }
+  img.bootImg {
+    max-width: 240px;
+}
+.logo {
+  width: auto;
+  height: 125px;
+}
+.scrollable-content>div { 
+  height: auto;
+  width: 270px; 
+}
+.scrollable-content>div>img { 
+  right: 0.13rem;
+  width: 110px;
+}
+.scrollable-content>div>p {
+  width: 145px;
+}
+.scrollable-content {
+  width: 325px; 
+  height: 70vh;
+}
+.bgOfRvs {
+  width: 310px;
+}
+.moz_button{
+  width: 295px;
+  height: 70px;
+  border-width: 3px;
+  font-size: 22px;
+}
+label.text-center.account-name {
+  font-size: 26px;
+}
+.java-settings{
+  height: auto;
+}
+section.login button.microsoft.moz_button {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+}
+
+section.login .get_newAccountDiv p {
+  font-size: 16px;
+}
+section.login { 
+  width: 40%;
+}
+
+
+
+
+
 
 
 
