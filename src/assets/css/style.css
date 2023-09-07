@@ -524,7 +524,7 @@ section.login {
 
   section.login>img {
     width: 100%;
-    opacity: .3;
+    /* opacity: .3; */
   }
 
   section.login>p {
@@ -574,7 +574,6 @@ section.login {
 }
 
 
-/* small screen :320px. */
 @media (max-width: 767px) {
   .loginwrp {
     width: 80%;
@@ -654,4 +653,23 @@ section.login {
     width: 450px
   }
 
+}
+
+
+
+
+
+/* small screen :320px. */
+@media (max-height: 700px) {
+  .logo {
+      width: auto;
+      height: 130px;
+  }
+  h4.text-center[dcode="Bienvenue"] {
+      margin-top: 45px !IMPORTANT;
+  }
+
+  .space-y-8 {
+      margin-top: 40px !important;
+  }
 }
