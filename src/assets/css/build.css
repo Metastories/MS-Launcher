@@ -1002,6 +1002,23 @@ video {
   display: flex;
 }
 
+.lang_buttons_home {
+  position: fixed;
+  top: 29px;
+  left: 36px;
+  display: flex;
+}
+
+.lang_buttons_home > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.lang_buttons_home>img {
+  width: 40px;
+}
+
 .lang_buttons > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
