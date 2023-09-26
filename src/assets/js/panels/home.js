@@ -251,6 +251,16 @@ class Home {
             ipcRenderer.send("change_lang", "es")
         })
 
+        G("#lang_en_home").click(() => {
+            ipcRenderer.send("change_lang", "en")
+        })
+        G("#lang_fr_home").click(() => {
+            ipcRenderer.send("change_lang", "fr")
+        })
+        G("#lang_es_home").click(() => {
+            ipcRenderer.send("change_lang", "es")
+        })
+
         ipcRenderer.on("update_lang",()=>{
             STDDECODE(appPath)
         })
