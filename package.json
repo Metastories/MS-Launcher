@@ -1,11 +1,11 @@
 {
     "name": "metastories",
     "preductname": "MyMetaStories",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "description": "MyMetaStories",
     "main": "src/app.js",
     "author": "joedev.fr",
-    "url": "https://metastories.joedev.fr/",
+    "url": "https://dl.mymetastories.eu/assets/launcher/",
     "engines": {
         "node": "^18.x.x"
     },
