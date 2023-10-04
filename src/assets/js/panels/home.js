@@ -5,13 +5,15 @@
 
 'use strict';
 
-import STDDECODE from '../std.render.js';
+import funcs from '../std.render.js';
+
 import { logger, database, changePanel } from '../utils.js';
 
 const { Launch, Status } = require('./minecraft-java-core/Index');
-const { ipcRenderer } = require('electron');
+const { shell, ipcRenderer } = require('electron');
 const launch = new Launch();
 const pkg = require('../package.json');
+const G = require('jquery');
 
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
 const appPath = await ipcRenderer.invoke('get-user-data-path');
@@ -27,6 +29,7 @@ class Home {
         this.initStatusServer();
         this.initBtn();
     }
+    
 
     async initNews() {
         let news = document.querySelector('.news-list');
@@ -147,17 +150,25 @@ class Home {
                 console.log(extract);
             });
 
+
+
             launch.on('progress', (progress, size) => {
-                progressBar.style.display = "block"
-                document.querySelector(".text-download").innerHTML = `Téléchargement ${((progress / size) * 100).toFixed(0)}%`
-                ipcRenderer.send('main-window-progress', { progress, size })
+
+                const translations = funcs.retriveLangs(appPath);
+
+                progressBar.style.display = "block";
+                document.querySelector(".text-download").innerHTML = `${translations.downloading} ${((progress / size) * 100).toFixed(0)}%`;
+                ipcRenderer.send('main-window-progress', { progress, size });
                 progressBar.value = progress;
                 progressBar.max = size;
             });
 
             launch.on('check', (progress, size) => {
+
+                const translations = funcs.retriveLangs(appPath);
+
                 progressBar.style.display = "block"
-                document.querySelector(".text-download").innerHTML = `Vérification ${((progress / size) * 100).toFixed(0)}%`
+                document.querySelector(".text-download").innerHTML = `${translations.verification} ${((progress / size) * 100).toFixed(0)}%`
                 progressBar.value = progress;
                 progressBar.max = size;
             });
@@ -183,7 +194,10 @@ class Home {
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-hide");
                 ipcRenderer.send('main-window-progress-reset')
                 progressBar.style.display = "none"
-                info.innerHTML = `Demarrage en cours...`
+
+                const translations = funcs.retriveLangs(appPath);
+
+                info.innerHTML = `${translations.starting}`
                 console.log(e);
             })
 
@@ -192,7 +206,10 @@ class Home {
                 progressBar.style.display = "none"
                 info.style.display = "none"
                 playBtn.style.display = "block"
-                info.innerHTML = `Vérification`
+
+                const translations = funcs.retriveLangs(appPath);
+
+                info.innerHTML = `${translations.verification}`
                 new logger('Launcher', '#7289da');
                 console.log('Close');
             });
@@ -217,10 +234,11 @@ class Home {
         }
     }
 
+    
     initBtn() {
         
         const G = require("jquery")
-        STDDECODE(appPath)
+        funcs.STDDECODE(appPath)
         document.querySelector('.avterInfo').addEventListener('click', () => {
             const panel = document.querySelector(".panel.home");
             panel.style.setProperty("opacity", 1, "important");
@@ -231,6 +249,11 @@ class Home {
             changePanel('home');
          
         })
+
+        G("a[href^='http']").on('click', function(event) {
+            event.preventDefault();
+            shell.openExternal(this.href);
+        });
      
         const minimize = document.getElementById("minimize")
         const close = document.getElementById("close")
@@ -262,7 +285,7 @@ class Home {
         })
 
         ipcRenderer.on("update_lang",()=>{
-            STDDECODE(appPath)
+            funcs.STDDECODE(appPath)
         })
 
     }

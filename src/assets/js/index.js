@@ -5,7 +5,8 @@
 
 'use strict';
 const { ipcRenderer, remote } = require('electron');
-import STDDECODE from './std.render.js';
+
+import funcs from './std.render.js';
 import { config } from './utils.js';
 
 let dev = process.env.NODE_ENV === 'dev';
@@ -121,4 +122,4 @@ new Splash();
 
 const appPath = await ipcRenderer.invoke('get-user-data-path');
 
-STDDECODE(appPath)
+funcs.STDDECODE(appPath)

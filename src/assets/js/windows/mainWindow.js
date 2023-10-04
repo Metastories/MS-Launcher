@@ -65,7 +65,10 @@ function createWindow() {
               "SAUVEGARDER": "TO SAFEGUARD",
               "Recherche_de": "Update search",
               "Chargement_en": "Loading...",
-              "Connexion":"Connetion"
+              "Connexion":"Connection",
+              "verification": "Verification",
+              "downloading": "Download",
+              "starting": "Starting..."
           }
       ]`);
         const es = JSON.parse(`[
@@ -86,7 +89,10 @@ function createWindow() {
               "SAUVEGARDER": "PARA SALVAGUARDAR",
               "Recherche_de": "Actualizar búsqueda",
               "Chargement_en": "Cargando...",
-              "Connexion": "Connetion"
+              "Connexion": "Conexión",
+              "verification": "Auditoría en curso",
+              "downloading": "Descargar",
+              "starting": "Starting..."
           }
       ]`);
         const fr = JSON.parse(`[
@@ -107,7 +113,10 @@ function createWindow() {
               "SAUVEGARDER": "SAUVEGARDER",
               "Recherche_de": "Recherche de mise à jour",
               "Chargement_en": "Chargement en cours...",
-              "Connexion":"Connexion"
+              "Connexion":"Connexion",
+              "verification": "Vérification",
+              "downloading": "Téléchargement",
+              "starting": "Démarrage en cours..."
           }
       ]`);
 
