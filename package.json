@@ -1,7 +1,7 @@
 {
     "name": "metastories",
     "preductname": "MyMetaStories",
-    "version": "1.6.2",
+    "version": "1.6.3",
     "description": "MyMetaStories",
     "main": "src/app.js",
     "author": "joedev.fr",
